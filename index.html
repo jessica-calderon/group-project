@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- still need to add the api's such as maybe tailwind and bootstrap -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pollen-tracker</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+</head>
+
+<header>
+    <h1>Pollen-Tracker</h1>
+</header>
+
+<body>
+
+    <!-- this is the location search bar area on the left side of the screen -->
+    
+    <div class="location-container">
+        <div class="location-search">Location Search</div>
+
+        <div class="search-bar" id="search-bar">Enter a City</div>
+        <button class="search">Search</button>
+        <button class="clear">Clear History</button>
+
+        <div class="location-history">
+        <h2>location History</h2>
+    </div>
+
+    </div>
+
+    <!-- end of the left side section of the screen -->
+
+    
+
+<!-- right side boxes on the page -->
+    <div class="location-box">
+            <div class="location">Location: (MM, DD, YYYY) </div>
+        </div>
+
+        <!-- start of the 4 pollen forecast boxes section -->
+
+    <div class="pollen-level-container">
+    <div class="weather-forecast" id="weather-forecast">
+        <div class="weather-forecast-item">
+            <img src="" alt="" class="icon">
+            <div class="pollen">treeOakindex</div>
+            <div class="lvl">night - 70 </div>
+            <div class="lvl">day - 75</div>
+        </div>
+        </div>
+
+        <div class="weather-forecast">
+            <div class="weather-forecast-item">
+                <img src="" alt="" class="icon">
+                <div class="pollen">treeCedarindex</div>
+                <div class="lvl">night - 70 </div>
+                <div class="lvl">day - 75</div>
+            </div>
+            </div>
+
+        <div class="weather-forecast">
+            <div class="weather-forecast-item">
+                <img src="" alt="" class="icon">
+                <div class="pollen">treeMapleindex</div>
+                <div class="lvl">night - 70 </div>
+                <div class="lvl">day - 75</div>
+            </div>
+            </div>
+
+        <div class="weather-forecast">
+            <div class="weather-forecast-item">
+                <img src="" alt="" class="icon">
+                <div class="pollen">treeAshindex</div>
+                <div class="lvl">night - 70 </div>
+                <div class="lvl">day - 75</div>
+            </div>
+        </div>
+    </div>
+    <!-- end of the 4 boxes pollen section -->
+
+    <!-- display the current weather conditions -->
+
+    <div class="weather-block">
+        <div class="day"></div>
+        <div class="daily-forecast">
+            Daily Forecast
+        </div>
+    </div>
+    <!-- end of this section right here -->
+    
+</body>
+</html>
