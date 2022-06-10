@@ -8,16 +8,30 @@
     margin-bottom: 3px ;
  }
 
+
 body {
     background-color: lightslategray;
     height: 100vh;
 }
-
+.index-link {
+    font-size: x-large;
+    margin: 25px 0 0 10px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+.index-link:hover {
+    color: lightgrey;
+    background-color: black;
+}
 .box {
     margin: 10px;
 }
 .fa-style {
     margin-right: 5px;
+}
+.fa-margin {
+    margin-left: 5px;
 }
 /* pollen tracker heading */ 
 .header {
