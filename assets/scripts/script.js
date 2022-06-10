@@ -17,7 +17,7 @@ function searchAirQuality(city) {
 
         // city html section and forecast elements //
   //      var cityEl = $("<h2>").text(response.name);
-        var air = $("<p>").text(" " + response.data.aqi);
+        var air = $("<p>").text("Air Quality Index (AQI): " + response.data.aqi);
         var newDivEl = $('<div>')
         newDivEl.append(air);
         $("#airQuality").html(newDivEl);
@@ -46,10 +46,10 @@ $("#searchBtn").on("click", function(event) {
 /* load localStorage and display on page */
 function loadSaved () {
     var searchedItem = JSON.parse(localStorage.getItem('city'));
-    var searchHistory = $("<button class='styled-btn btn'>").text(searchedItem);
+    var searchHistory = $("<button class='styled-btn btn button is-dark is-outlined is-rounded'>").text(searchedItem);
     var divEl = $("<div>");
     divEl.append(searchHistory)
-    $("#locationSearch").prepend(divEl);
+    $("#locationHistory").prepend(divEl);
     
 }
 // clickable location history
@@ -57,3 +57,8 @@ $("#locationHistory").on('click', '.btn', function(event) {
     event.preventDefault();
     searchAirQuality($(this).text());
 });
+// clear location history on clear btn click
+$("#clearBtn").on("click", function(event) {
+    event.preventDefault();
+    $("#locationHistory").html("");
+})
