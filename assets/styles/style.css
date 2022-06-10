@@ -4,11 +4,13 @@
     padding: 0; 
 }
 body {
+    font-family: 'Red Hat Display', sans-serif;
     background-color: lightslategray;
     height: 100vh;
 }
 /* navbar link style */
 .index-link {
+    font-weight: bold;
     font-size: x-large;
     margin: 10px 0 0 10px;
     color: white;
@@ -50,8 +52,5 @@ body {
 }
 /* phones and smaller */
 @media screen and (max-width: 575px) {
-    .index-link {
-        font-size: large;
-        margin: 0 0 0 10px;
-    }
+
 }
