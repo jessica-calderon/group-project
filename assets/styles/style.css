@@ -3,7 +3,9 @@
     margin: 0;
     padding: 0; 
 }
-
+ .btn-style {
+     width: 250px;
+ }
 
 body {
     background-color: lightslategray;
