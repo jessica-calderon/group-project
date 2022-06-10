@@ -64,9 +64,13 @@
                     <figure class="media-left"></figure>
                     <div class="media-content">
                         <div class="content">
-                            <p class="has-text-weight-bold">
-                                <i class="fa-solid fa-location-dot"></i>
-                                Location Placeholder (MM, DD, YYYY)</p>
+                                <h4 class="has-text-weight-bold"><i class="fa-style fa-solid fa-location-dot"></i> 
+                                    Location Placeholder
+                                </h4>
+                                <div id="currentDate" class="current-date">
+                                    <!-- moment date inserted dynamically using jquery -->
+                                </div>
+                                </p>
                             <p class="has-text-weight-bold">Today's Pollen Levels:</p>
                             <p class="is-size-6"></p>
                             <div><small></small></div>
@@ -114,7 +118,8 @@
       </p>
     </div>
   </footer>
-<!-- script links -->
+<!-- script, moment, jquery links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="./assets/scripts/script.js"></script>
 </body>

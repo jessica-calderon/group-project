@@ -18,6 +18,9 @@ body {
     color: lightgrey;
     background-color: black;
 }
+.current-date {
+    font-weight: bold;
+}
 /* btn spacing */
  .btn-style {
     margin-top: 3px;
