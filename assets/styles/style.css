@@ -3,7 +3,8 @@
 }
 body {
     background-color: lightslategray;
-    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
 }
 /* navbar link style */
 .index-link {
