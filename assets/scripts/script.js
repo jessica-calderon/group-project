@@ -21,6 +21,13 @@ function searchAirQuality(city) {
         var newDivEl = $('<div>')
         newDivEl.append(air);
         $("#airQuality").html(newDivEl);
+
+        // air quality colors
+        // 0-50 good-green 
+        // 51-100 moderate-yellow
+        // 101-150 unhealthy for sensitive groups - orange
+        // 151-200 unhealthy - red 
+        // TODO: add if statement block to change div color based on quality 
     });
 }
 /* city location logic */
@@ -31,7 +38,7 @@ $("#searchBtn").on("click", function(event) {
     var savedSearch = $(this).siblings("input").val();
     var saved = [];
     saved.push(savedSearch);
-    localStorage.setItem('city', JSON.stringify(saved));
+    localStorage.setItem('city', JSON.stringify(citySearch));
 
     searchAirQuality(citySearch);
     loadSaved();
@@ -39,9 +46,9 @@ $("#searchBtn").on("click", function(event) {
 /* load localStorage and display on page */
 function loadSaved () {
     var searchedItem = JSON.parse(localStorage.getItem('city'));
-    var savedSection = $("<button class='styled-btn btn'>").text(searchedItem);
+    var searchHistory = $("<button class='styled-btn btn'>").text(searchedItem);
     var divEl = $("<div>");
-    divEl.append(savedSection)
+    divEl.append(searchHistory)
     $("#locationSearch").prepend(divEl);
     
 }
