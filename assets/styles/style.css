@@ -30,6 +30,8 @@ body {
  /* location history btn style */
  .styled-btn {
      width: 300px;
+     margin-top: 3px;
+     margin-bottom: 3px;
  }
  .location-history .styled-btn {
      text-transform: uppercase;
