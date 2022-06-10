@@ -46,7 +46,7 @@ $("#searchBtn").on("click", function(event) {
 /* load localStorage and display on page */
 function loadSaved () {
     var searchedItem = JSON.parse(localStorage.getItem('city'));
-    var searchHistory = $("<button class='styled-btn btn button is-dark is-outlined is-rounded'>").text(searchedItem);
+    var searchHistory = $("<button class='styled-btn btn button is-dark is-outlined is-rounded is-fullwidth'>").text(searchedItem);
     var divEl = $("<div>");
     divEl.append(searchHistory)
     $("#locationHistory").prepend(divEl);
