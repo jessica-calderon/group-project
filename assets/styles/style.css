@@ -37,6 +37,16 @@ body {
 .fa-margin {
     margin-left: 5px;
 }
+/* footer style */
+.footer {
+    margin: auto;
+}
+.footer a {
+    color: black;
+}
+.footer a:hover {
+    color: grey;
+}
 /* different display size media queries */
 /* smaller desktop screens */
 @media screen and (max-width: 980px) {
