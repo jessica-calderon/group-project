@@ -41,7 +41,7 @@
                 </div>
                 <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="fa-style fa-solid fa-magnifying-glass"></i>
                     Search</button>
-                <button class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
+                <button id="clearBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
                     <i class="fa-style fa-solid fa-trash-can"></i>
                     Clear</button>
             </div>
@@ -52,7 +52,9 @@
                 </article><label class="label">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     Location History</label>
-                <div id="locationHistory">Location History</div>
+                <div id="locationHistory" class="location-history is-centered">
+                    <!-- insert location search history here dynamically -->
+                </div>
             </div>
             <div class="columns"></div>
         </div>
@@ -87,7 +89,7 @@
                                 <div class="content">
                                     <p class="has-text-weight-bold">
                                         <i class="fa-style fa-solid fa-wind"></i>
-                                        Today's Air Quality:
+                                        Today's Air Quality
                                     </p>
                                     <div class="air-quality" id="airQuality"></div>
                                     <p class="is-size-6"></p>
