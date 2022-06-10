@@ -16,6 +16,9 @@ body {
 .box {
     margin: 10px;
 }
+.fa-style {
+    margin-right: 5px;
+}
 /* pollen tracker heading */ 
 .header {
     padding: 20px;

@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- still need to add the api's such as maybe tailwind and bootstrap -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pollen Tracker</title>
+    <!-- links to stylesheet, bulma css, font awesome -->
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Pollen Tracker</title>
 </head>
 
 <body>
     <!-- Navbar start  -->
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark is-active" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
           <a class="navbar-item" href="#">Pollen Tracker</a>
         </div>
         </div>
       </nav>
       <!-- location search form -->
-    <div class="columns">
-        <div class="column is-4">
-            <p class="mt-5 mb-5 has-text-centered"></p>
-        </div>
-    </div>
-    <div class="columns">
-        <div class="field is-grouped">
-            <div class="control"></div>
-        </div>
-    </div>
+
     <div class="columns">
         <div class="column is-4">
             <div class="box">
-                <article class="media">
-                    <figure class="media-left"></figure>
-                </article><label class="label">Location Search</label>
+            <label class="label">
+                <i class="fa-solid fa-magnifying-glass-location"></i>
+                Location Search </label>
                 <div class="box has-background-light has-text-centered">
+                    
                     <form type="form" action="#" data-netlify="" class="form p-1">
                         <div class="field">
                             <div class="control"><input type="text" name="city" placeholder="Enter a City" class="input" /></div>
                         </div>
                     </form>
                 </div>
-                <button class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">Search</button>
-                <button class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">Clear</button>
+                <button class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="fa-style fa-solid fa-magnifying-glass"></i>
+                    Search</button>
+                <button class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
+                    <i class="fa-style fa-solid fa-trash-can"></i>
+                    Clear</button>
             </div>
             <!-- Location history div -->
             <div class="box">
                 <article class="media">
                     <figure class="media-left"></figure>
-                </article><label class="label">Location History</label>
+                </article><label class="label">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Location History</label>
                 <p class="has-text-dark is-size-7 has-text-grey">Location History</p>
             </div>
             <div class="columns"></div>
@@ -62,7 +59,9 @@
                     <figure class="media-left"></figure>
                     <div class="media-content">
                         <div class="content">
-                            <p class="has-text-weight-bold">Location (MM, DD, YYYY)</p>
+                            <p class="has-text-weight-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Location Placeholder (MM, DD, YYYY)</p>
                             <p class="has-text-weight-bold">Today's Pollen Levels:</p>
                             <p class="is-size-6"></p>
                             <div><small></small></div>
@@ -79,8 +78,12 @@
                             <figure class="media-left"></figure>
                             <div class="media-content">
                                 <div class="content">
-                                    <p class="has-text-weight-bold">Today's Weather Conditions:</p>
-                                    <p class="has-text-dark is-size-7 has-text-grey">Daily Forecast</p>
+                                    <p class="has-text-weight-bold">
+                                        <i class="fa-solid fa-cloud-sun"></i>
+                                        Today's Weather Conditions:
+                                    </p>
+                                    <p class="has-text-dark is-size-7 has-text-grey">
+                                        Daily Forecast</p>
                                     <p class="is-size-6"></p>
                                     <div><small></small></div>
                                     <div class="mt-2 mb-2"><small> </small></div>
@@ -92,8 +95,7 @@
             </div>
         </div>
     </div>
-    <div class="columns"></div>
-    <div class="columns"></div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="./assets/scripts/script.js"></script>
