@@ -14,9 +14,6 @@ function searchAirQuality(city) {
     })
     .then(function (response) {
         $("#airQuality").empty();
-
-        // city html section and forecast elements //
-  //      var cityEl = $("<h2>").text(response.name);
         var air = $("<p>").text("Air Quality Index (AQI): " + response.data.aqi);
         var newDivEl = $('<div>')
         newDivEl.append(air);
