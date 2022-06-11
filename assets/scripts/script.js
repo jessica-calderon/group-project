@@ -14,11 +14,28 @@ function searchAirQuality(city) {
     })
     .then(function (response) {
         $("#airQuality").empty();
-        var air = $("<p>").text("Air Quality Index (AQI): " + response.data.aqi);
+        var air = $("<p>").text("Air Quality Index (AQI): " );
+        var aqi = $("<span>") 
+        aqi.text(response.data.aqi)
+        air.append(aqi)
         var newDivEl = $('<div>')
+        if(response.data.aqi <= 50 && response.data.aqi >= 0 ) {
+            aqi.css("background-color","green")
+            aqi.css ("color", "white")   
+        } else if (response.data.aqi >= 51 && response.data.aqi <= 100 ) {
+            aqi.css("background-color","yellow")
+            aqi.css ("color", "black")   
+        } else if (response.data.aqi >= 101 && response.data.aqi <= 150 ) {
+            aqi.css("background-color","orange")
+            aqi.css ("color", "black")   
+        } else if (response.data.aqi >= 151 && response.data.aqi <= 200 ) {
+            aqi.css("background-color","red")
+            aqi.css ("color", "white")   
+        }
+        
         newDivEl.append(air);
         $("#airQuality").html(newDivEl);
-
+        console.log(response) // jdcarra 
         // air quality colors
         // 0-50 good-green 
         // 51-100 moderate-yellow
