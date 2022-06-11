@@ -19,6 +19,21 @@ function searchCoord(city) {
             var lat = response.coord.lat;
             var lon = response.coord.lon;
 
+             // todays forecast section to display on the card 
+        
+         // todays forecast section to display on the card 
+        var weather = response.weather.main; 
+
+        
+        var temp = $("<p>").text("Temperature: " + response.main.temp);
+        var humidity = $("<p>").text("Humidity: " + response.main.humidity);
+        var wind = $("<p>").text("Wind Speed: " + response.wind.speed);
+
+        var weatherDiv =$('<div>')
+        weatherDiv.append(temp, humidity, wind);
+        $("#dForecast").html(weatherDiv)
+
+        // end of the daily forecast section of the page 
 
             // tomorrow api  
 
