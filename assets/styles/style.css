@@ -48,6 +48,17 @@ body {
 .fa-margin {
     margin-left: 5px;
 }
+.fa-color {
+    color: #0b6b10; 
+}
+/* pollen index style */
+.pollen-index {
+    font-size: 18px;
+    font-weight: bold;
+}
+.div-style {
+    border: 1px single black;
+}
 /* footer style */
 .footer {
     margin: auto;

@@ -2,6 +2,42 @@
 var today = moment().format('MMMM Do, YYYY');
 $("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + today);
 
+// turn searched city into lat/lon for pollen api purposes 
+
+function searchCoord(city) { 
+    var searched = JSON.parse(localStorage.getItem('city'));
+    var owApiKey = "8146fc372939ba1529f0cee4a074681a";
+    var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searched + "&units=imperial&appid=" + owApiKey;
+
+
+    $.ajax({
+        url: owApiUrl,
+        method: 'GET'
+    })
+    .then(function (response) {
+        console.log(response);
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+
+
+// tomorrow api  
+
+    var tomApiKey = "4KmRdN5z9dqbcv6PQ9857fEpkG1PShyN";
+    var treeIndexUrl = "https://api.tomorrow.io/v4/timelines?location=" + lat + "," + lon + "&timesteps=current&units=imperial&apikey=" + tomApiKey + "&fields=treeIndex,grassIndex,weedIndex";
+    $.ajax({
+    url: treeIndexUrl,
+    method: 'GET'
+     })
+
+.then(function (response) {
+    $('#pollenLevels').empty();
+    var uv = response.value;
+    var pollenDiv = $('<p class="pollen-index">').html("<h5>Pollen Index:</h5> " + "<div class='box has-text-light has-background-grey-dark'><i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i> Grass: " + response.data.timelines[0].intervals[0].values.grassIndex + "<br> <i class='fa-style fa-color fa-margin fa-solid fa-tree'></i> Tree: " + response.data.timelines[0].intervals[0].values.treeIndex + "<br> <i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i> Weed: " + response.data.timelines[0].intervals[0].values.weedIndex + "</p>");
+    $('#pollenLevels').html(pollenDiv)
+})
+})
+}
+
 //  air quality open data platform api logic
 
 function searchAirQuality(city) {
@@ -38,6 +74,7 @@ $("#searchBtn").on("click", function(event) {
     localStorage.setItem('city', JSON.stringify(citySearch));
 
     searchAirQuality(citySearch);
+    searchCoord(citySearch);
     loadSaved();
 });
 /* load localStorage and display on page */
@@ -59,3 +96,4 @@ $("#clearBtn").on("click", function(event) {
     event.preventDefault();
     $("#locationHistory").html("");
 })
+
