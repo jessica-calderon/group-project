@@ -91,7 +91,7 @@ $("#searchBtn").on("click", function (event) {
         saved.push(...savedSearches);
     }
     var citySearch = $("#citySearch").val().trim();
-    citySearch = citySearch.toLowerCase();
+    //citySearch = citySearch.toLowerCase();
     if (saved.includes(citySearch)) {
         return;
     }
