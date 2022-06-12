@@ -87,7 +87,7 @@ $("#searchBtn").on("click", function (event) {
     var saved = [];
     var savedSearches = JSON.parse(localStorage.getItem('city'));
     if (savedSearches) {
-        console.log(savedSearches);
+        
         saved.push(...savedSearches);
     }
     var citySearch = $("#citySearch").val().trim();
