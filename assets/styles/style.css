@@ -59,6 +59,11 @@ body {
 .div-style {
     border: 1px single black;
 }
+
+/* styling for the curret weather box */ 
+.dForecast p {
+    font-size: 40px;
+}
 /* footer style */
 .footer {
     margin: auto;

@@ -2,6 +2,7 @@
 var today = moment().format('MMMM Do, YYYY');
 $("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + today);
 
+
 // turn searched city into lat/lon for pollen api purposes 
 
 // openweather api logic start 
@@ -10,6 +11,15 @@ function searchCoord(city) {
     var owApiKey = "8146fc372939ba1529f0cee4a074681a";
     var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searched + "&units=imperial&appid=" + owApiKey;
 
+
+
+    // placeholder tag for the current location on the pollen index 
+    // it is working however not auto caps on the first letter and the location image thingy also disapeard 
+var currentLocation = $("#cLocation"); 
+var lIcon = $("#lIcon");
+//console.log(currentLocation); 
+city = city.toUpperCase(); // making everything uppercase bc it looks better than lowercase lol 
+$("#cLocation").text(city); 
 
     $.ajax({
         url: owApiUrl,
@@ -20,6 +30,37 @@ function searchCoord(city) {
             var lat = response.coord.lat;
             var lon = response.coord.lon;
 
+             // todays forecast section to display on the card 
+        
+         // todays forecast section to display on the card 
+        var weather = response.weather.main; 
+        var temp = $("<p>").text("Temperature: " + response.main.temp);
+        var humidity = $("<p>").text("Humidity: " + response.main.humidity);
+        var wind = $("<p>").text("Wind Speed: " + response.wind.speed);
+
+        // getting the weather icons to display in the box 
+        if (weather === "Rain") {
+            var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/09d.png");
+            icon.attr("style", "width: 60px; height: 60px");
+        } else if (weather === "Clouds") {
+            var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/03d.png");
+            icon.attr("style", "width: 60px; height: 60px");
+        } else if (weather === "Drizzle") {
+            var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/10d.png");
+            icon.attr("style", "width: 60px; height: 60px");
+        } else if (weather === "Clear") {
+            var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/01d.png");
+            icon.attr("style", "width: 60px; height: 60px");
+        } else if (weather === "Snow") {
+            var icon = $('<img>').attr("src", "http://openweathermap.org/img/wn/13d.png");
+            icon.attr("style", "width: 60px; height: 60px");
+        }
+
+        var weatherDiv =$('<div>')
+        weatherDiv.append( icon, temp, humidity, wind);
+        $("#dForecast").html(weatherDiv)
+
+        // end of the daily forecast section of the page 
 
             // tomorrow api logic start 
 
