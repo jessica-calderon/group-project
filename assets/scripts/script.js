@@ -6,9 +6,8 @@ $("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + tod
 
 // openweather api logic start 
 function searchCoord(city) {
-    var searched = JSON.parse(localStorage.getItem('city'));
     var owApiKey = "8146fc372939ba1529f0cee4a074681a";
-    var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searched + "&units=imperial&appid=" + owApiKey;
+    var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + owApiKey;
 
 
     $.ajax({
@@ -88,11 +87,7 @@ $("#searchBtn").on("click", function (event) {
     var saved = [];
     var savedSearches = JSON.parse(localStorage.getItem('city'));
     if (savedSearches) {
-<<<<<<< HEAD
-        
-=======
       //  console.log(savedSearches);
->>>>>>> fd6cd3b4bc487598d08f39d9c67f6f74fa194316
         saved.push(...savedSearches);
     }
     var citySearch = $("#citySearch").val().trim();
