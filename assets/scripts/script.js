@@ -33,7 +33,7 @@ $("#cLocation").text(city);
              // todays forecast section to display on the card 
         
          // todays forecast section to display on the card 
-        var weather = response.weather.main; 
+        var weather = response.weather[0].main; 
         var temp = $("<p>").text("Temperature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
         var wind = $("<p>").text("Wind Speed: " + response.wind.speed);
@@ -57,7 +57,7 @@ $("#cLocation").text(city);
         }
 
         var weatherDiv =$('<div class="card has-text-light has-background-grey-dark pl-5 py-4 is-size-4 has-text-weight-semi-bold" >')
-        weatherDiv.append( icon, temp, humidity, wind);
+        weatherDiv.append(icon, temp, humidity, wind);
         $("#dForecast").html(weatherDiv)
 
         // end of the daily forecast section of the page 
