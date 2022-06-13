@@ -56,7 +56,7 @@ $("#cLocation").text(city);
             icon.attr("style", "width: 60px; height: 60px");
         }
 
-        var weatherDiv =$('<div>')
+        var weatherDiv =$('<div class="card has-text-light has-background-grey-dark pl-5 py-4 is-size-4 has-text-weight-semi-bold" >')
         weatherDiv.append( icon, temp, humidity, wind);
         $("#dForecast").html(weatherDiv)
 
@@ -120,7 +120,7 @@ function searchAirQuality(city) {
                 // 101-150 unhealthy for sensitive groups - orange
                 // 151-200 unhealthy - red 
             });
-     }
+    }
 
 /* city location logic */
 $("#searchBtn").on("click", function (event) {
