@@ -1,6 +1,7 @@
 * {
     font-family: 'Red Hat Display', sans-serif;
 }
+/* body background color and view height and width */
 body {
     background-color: lightslategray;
     width: 100vw;
@@ -41,13 +42,7 @@ body {
 .box {
     margin: 10px;
 }
-/* add spacing to font awesome icons */
-.fa-style {
-    margin-right: 5px;
-}
-.fa-margin {
-    margin-left: 5px;
-}
+/* add color to font awesome icons */
 .fa-color {
     color: #0b6b10; 
 }
@@ -59,8 +54,7 @@ body {
 .div-style {
     border: 1px single black;
 }
-
-/* styling for the curret weather box */ 
+/* styling for the current weather box */ 
 .dForecast p {
     font-size: 40px;
 }
