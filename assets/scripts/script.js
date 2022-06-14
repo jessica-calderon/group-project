@@ -163,6 +163,10 @@ $("#searchBtn").on("click", function (event) {
         var divEl = $("<div>");
         divEl.append(searchHistory)
         $("#locationHistory").prepend(divEl);
+
+        // lets input feild clear out after clicking the search button instead of having the name stay there 
+        let inputs = document.querySelectorAll('input');
+        inputs.forEach(input => input.value = ''); 
     });
 /* load localStorage and display on page */
 function loadSaved() {
