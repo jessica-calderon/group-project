@@ -133,6 +133,7 @@ $("#searchBtn").on("click", function (event) {
     if (savedSearches) {
       //  console.log(savedSearches);
         saved.push(...savedSearches);
+        return false;
     }
     var citySearch = $("#citySearch").val().trim();
     //citySearch = citySearch.toLowerCase();
@@ -177,5 +178,10 @@ $("#clearBtn").on("click", function (event) {
     $("#locationHistory").html("");
     localStorage.clear();
 })
+// prevent enter key refresh on form
+$(document).on("keydown", "form", function(event) { 
+    return event.key != "Enter";
+});
+
 loadSaved();
 
