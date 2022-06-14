@@ -4,7 +4,7 @@
  */
 // display todays current date on page
 var today = moment().format('MMMM Do, YYYY');
-$("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + today);
+$("#currentDate").html("<i class='mr-1 fa-solid fa-calendar-day'></i>" + today);
 
 // openweather api logic start 
 function searchCoord(city) {
@@ -111,27 +111,23 @@ function searchAirQuality(city) {
                 // pull air quality index from air quality open data api and push to page dynamically after city search
                 .then(function (response) {
                     $("#airQuality").empty();
-                    var air = $("<p>").text("Air Quality Index (AQI): ");
+                    var air = $("<p>").text("AQI - ");
                     var aqi = $("<span>")
                     aqi.text(response.data.aqi)
                     air.append(aqi)
-                    var newDivEl = $('<div>')
+                    var newDivEl = $("<div>")
                     // set background color based on aqi levels green-good 
                     if (response.data.aqi <= 50 && response.data.aqi >= 0) {
-                            aqi.css("background-color", "green")
-                            aqi.css("color", "white")
+                        $("#airQuality").attr("class", "card m-5 p-5 has-background-success has-text-centered title has-text-white");
                             // moderate-yellow 
                         } else if (response.data.aqi >= 51 && response.data.aqi <= 100) {
-                            aqi.css("background-color", "yellow")
-                            aqi.css("color", "black")
-                            // unhealthy for sensitive groups-orange
+                            $("#airQuality").attr("class", "card m-5 p-5 has-background-warning has-text-centered title has-text-black");
+                            // unhealthy for sensitive groups-light red 
                         } else if (response.data.aqi >= 101 && response.data.aqi <= 150) {
-                            aqi.css("background-color", "orange")
-                            aqi.css("color", "black")
+                            $("#airQuality").attr("class", "card m-5 p-5 has-background-danger-light has-text-centered title has-text-black");
                             // unhealthy-red
                         } else if (response.data.aqi >= 151 && response.data.aqi <= 200) {
-                            aqi.css("background-color", "red")
-                            aqi.css("color", "white")
+                            $("#airQuality").attr("class", "card m-5 p-5 has-background-danger has-text-centered title has-text-white");
                     }
                         // append air quality to page
                         newDivEl.append(air);
@@ -155,7 +151,6 @@ $("#searchBtn").on("click", function (event) {
         }
         //var savedSearch = $(this).siblings("input").val();
         saved.push(citySearch)
-        console.log(saved);
         localStorage.setItem('city', JSON.stringify(saved));
 
         searchAirQuality(citySearch);

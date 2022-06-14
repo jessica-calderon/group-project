@@ -22,7 +22,7 @@ body {
 }
 /* current date style */
 .current-date {
-    font-weight: bold;
+    text-transform: uppercase;
 }
 /* btn spacing */
  .btn-style {
@@ -50,6 +50,9 @@ body {
 .pollen-index {
     font-size: 18px;
     font-weight: bold;
+}
+.orange {
+    background-color: orange;
 }
 .div-style {
     border: 1px single black;
