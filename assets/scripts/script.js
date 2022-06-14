@@ -1,7 +1,7 @@
-$(document).ready(function() {
+/* $(document).ready(function() {
     $.ajaxSetup({ cache: false });
   });
-
+ */
 // display todays current date on page
 var today = moment().format('MMMM Do, YYYY');
 $("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + today);
@@ -82,7 +82,7 @@ function searchCoord(city) {
             // tomorrow api logic start 
 
             var tomApiKey = "4KmRdN5z9dqbcv6PQ9857fEpkG1PShyN";
-            var treeIndexUrl = "https://api.tomorrow.io/v4/timelines?location=" + lat + "," + lon + "&timesteps=current&units=imperial&apikey=" + tomApiKey + "&fields=treeIndex,grassIndex,weedIndex";
+            var treeIndexUrl = "https://api.tomorrow.io/v4/timelines?location=" + lat + "," + lon + "&timesteps=current&units=imperial&apikey=" + tomApiKey + "&fields=treeIndex,grassIndex";
             $.ajax({
                 url: treeIndexUrl,
                 method: 'GET'
