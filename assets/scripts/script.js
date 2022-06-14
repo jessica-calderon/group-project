@@ -3,6 +3,8 @@ var today = moment().format('MMMM Do, YYYY');
 $("#currentDate").html("<i class='fa-style fa-solid fa-calendar-day'></i>" + today);
 
 
+
+
 // turn searched city into lat/lon for pollen api purposes 
 
 // openweather api logic start 
@@ -14,12 +16,12 @@ function searchCoord(city) {
 
 
     // placeholder tag for the current location on the pollen index 
-    // it is working however not auto caps on the first letter and the location image thingy also disapeard 
+    // added icon
 var currentLocation = $("#cLocation"); 
 var lIcon = $("#lIcon");
 //console.log(currentLocation); 
 city = city.toUpperCase(); // making everything uppercase bc it looks better than lowercase lol 
-$("#cLocation").text(city); 
+$("#cLocation").html('<i class="fa-solid fa-location-dot mr-2"></i>' + city); 
 
     $.ajax({
         url: owApiUrl,
@@ -56,7 +58,7 @@ $("#cLocation").text(city);
             icon.attr("style", "width: 60px; height: 60px");
         }
 
-        var weatherDiv =$('<div class="card has-text-light has-background-grey-dark pl-5 py-4 is-size-4 has-text-weight-semi-bold" >')
+        var weatherDiv =$('<div class="card has-text-light has-background-grey-dark pl-5 py-4 is-size-5 has-text-weight-semi-bold" >')
         weatherDiv.append(icon, temp, humidity, wind);
         $("#dForecast").html(weatherDiv)
 
@@ -73,7 +75,7 @@ $("#cLocation").text(city);
                 // pull tree, grass, and weed index from tomorrow.io api and add them dynamically to the page after city search
                 .then(function (response) {
                     $('#pollenLevels').empty();
-                    var pollenDiv = $('<p class="pollen-index">').html("<h5>Pollen Index:</h5> " + "<div class='box has-text-light has-background-grey-dark'><i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i> Grass: " + response.data.timelines[0].intervals[0].values.grassIndex + "<br> <i class='fa-style fa-color fa-margin fa-solid fa-tree'></i> Tree: " + response.data.timelines[0].intervals[0].values.treeIndex + "<br> <i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i> Weed: " + response.data.timelines[0].intervals[0].values.weedIndex + "</p>");
+                    var pollenDiv = $('<p class="pollen-index">').html("<h5>Pollen Index:</h5> " + "<div class='box has-text-light is-size-5 has-background-grey-dark'><i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i> Grass: " + response.data.timelines[0].intervals[0].values.grassIndex + "<br> <i class='fa-style fa-color fa-margin fa-solid fa-tree'></i> Tree: " + response.data.timelines[0].intervals[0].values.treeIndex + "<br> <i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i> Weed: " + response.data.timelines[0].intervals[0].values.weedIndex + "</p>");
                     $('#pollenLevels').html(pollenDiv)
                 })
         })
