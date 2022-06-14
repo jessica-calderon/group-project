@@ -82,19 +82,57 @@ function searchCoord(city) {
             // tomorrow api logic start 
 
             var tomApiKey = "4KmRdN5z9dqbcv6PQ9857fEpkG1PShyN";
-            var treeIndexUrl = "https://api.tomorrow.io/v4/timelines?location=" + lat + "," + lon + "&timesteps=current&units=imperial&apikey=" + tomApiKey + "&fields=treeIndex,grassIndex";
+            var treeIndexUrl = "https://api.tomorrow.io/v4/timelines?location=" + lat + "," + lon + "&timesteps=current&units=imperial&apikey=" + tomApiKey + "&fields=treeIndex,treeAshIndex,treeCedarIndex,treeOakIndex,treePineIndex,grassIndex,weedIndex,weedRagweedIndex";
+
+/* available indexes
+treeAcaciaIndex
+treeAshIndex,
+treeBeechIndex,
+treeBirchIndex,
+treeCedarIndex,
+treeCypressIndex,
+treeElderIndex,
+treeElmIndex,
+treeHemlockIndex,
+treeHickoryIndex,
+treeJuniperIndex,
+treeMahoganyIndex,
+treeMapleIndex,
+treeMulberryIndex,
+treeOakIndex,
+treePineIndex,
+treeCottonwoodIndex,
+treeSpruceIndex,
+treeSycamoreIndex,
+treeWalnutIndex,
+treeWillowIndex */
             $.ajax({
                 url: treeIndexUrl,
                 method: 'GET'
             })
                 // pull tree, grass, and weed index from tomorrow.io api and add them dynamically to the page after city search
                 .then(function (response) {
+                    // pollen index values 
+                    var grassIndex = response.data.timelines[0].intervals[0].values.grassIndex;
+                    var treeIndex = response.data.timelines[0].intervals[0].values.treeIndex;
+                    var treeAshIndex = response.data.timelines[0].intervals[0].values.treeAshIndex ;
+                    var treeCedarIndex = response.data.timelines[0].intervals[0].values.treeCedarIndex;
+                    var treeOakIndex = response.data.timelines[0].intervals[0].values.treeOakIndex;
+                    var treePineIndex = response.data.timelines[0].intervals[0].values.treePineIndex
+                    var weedIndex = response.data.timelines[0].intervals[0].values.weedIndex;
+                    var weedRagweedIndex = response.data.timelines[0].intervals[0].values.weedRagweedIndex;
+                    // clear pollenLevels div
                     $('#pollenLevels').empty();
-                    var pollenDiv = $('<p class="pollen-index">').html("<h5>Pollen Index:</h5> " + "<div class='box has-text-light is-size-5 has-background-grey-dark'><i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i> Grass: " + response.data.timelines[0].intervals[0].values.grassIndex + "<br> <i class='fa-style fa-color fa-margin fa-solid fa-tree'></i> Tree: " + response.data.timelines[0].intervals[0].values.treeIndex + "<br> <i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i> Weed: " + response.data.timelines[0].intervals[0].values.weedIndex + "</p>");
+                    // div to hold and display all pollen levels with styling 
+                    var pollenDiv = $("<div class='card has-text-light has-background-grey-dark pl-5 py-4 is-size-5 has-text-weight-semi-bold is-flex-grow-5'>").html("<h5 class='has-text-light'>Pollen Index:</h5> " + "<i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i>Grass: " + grassIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree: " + treeIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Ash: " + treeAshIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Cedar: " + treeCedarIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Oak: " + treeOakIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Pine: " + treePineIndex + "<br><i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i>Weed: " + weedIndex + "<br><i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i>Weed Ragweed: " + weedRagweedIndex);
+                    // push pollen div to page 
+/*                     $('.pollen-card').attr("class", "card is-dark") */
                     $('#pollenLevels').html(pollenDiv)
                 })
         })
 }
+
+
 
 //  air quality open data platform api logic
 
