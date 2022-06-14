@@ -39,10 +39,10 @@
                     </form>
                 </div>
                 <!-- search and button -->
-                <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="fa-style fa-solid fa-magnifying-glass"></i>
+                <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="mr-2 fa-solid fa-magnifying-glass"></i>
                     Search</button>
                 <button id="clearBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
-                    <i class="fa-style fa-solid fa-trash-can"></i>
+                    <i class="mr-2 fa-solid fa-trash-can"></i>
                     Clear</button>
             </div>
                 <!-- Location history div -->
@@ -72,8 +72,11 @@
                                     <!-- moment date inserted dynamically using jquery -->
                                 </div>
                                 </p>
-                                <hr class="has-background-dark">
-                             <h4>Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i></h4>
+                                <hr class="has-background-grey-light">
+                                </div></div></div>
+                                <div class="box">
+                                
+                             <h4 class="subtitle has-text-weight-bold">Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i></h4>
                             <div id="pollenLevels" class="pollen-div"></div>
                         <div class="mt-2 mb-2"><small> </small></div>
                     </div>
@@ -81,16 +84,15 @@
             </article>
         </div>
             <!-- air quality index section -->
-            <div class="columns">
+            <div class="columns m-1">
                 <div class="column is-12">
                     <div class="box">
                         <article class="media">
                             <figure class="media-left"></figure>
                             <div class="media-content">
                                 <div class="content">
-                                    <h4>
-                                        <i class="fa-style fa-solid fa-wind"></i>
-                                        Today's Air Quality Index (AQI)
+                                    <h4>                                        
+                                        Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
                                     </h4>
                                     <div class="air-quality" id="airQuality"></div>
                                 </div>
@@ -100,16 +102,15 @@
                 </div>
             </div>            
             <!-- daily forecast div -->
-            <div class="columns">
+            <div class="columns m-1">
                 <div class="column is-12">
                     <div class="box">
                         <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <h4>
-                                        <i class="fa-solid fa-cloud-sun"></i>
-                                        Today's Weather Conditions
+                            <div class="media-content"><div class="content"><h4>                                        
+                                        Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
                                     </h4>
+                                <div class="column is-one-quarter p-2">
+                                    
                                     <p id="dForecast" class="has-text-dark has-text-grey"></p>
                                 </div>
                             </div>
