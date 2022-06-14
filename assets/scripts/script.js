@@ -18,14 +18,27 @@ function searchCoord(city) {
     var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searched + "&units=imperial&appid=" + owApiKey;
 
 
+    // openweather geocode api url for state locator from city search
+    var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + owApiKey; 
 
-    // placeholder tag for the current location on the pollen index 
-    // added icon
-var currentLocation = $("#cLocation"); 
-var lIcon = $("#lIcon");
-//console.log(currentLocation); 
-city = city.toUpperCase(); // making everything uppercase bc it looks better than lowercase lol 
-$("#cLocation").html('<i class="fa-solid fa-location-dot mr-2"></i>' + city); 
+    // find and add state using geocode api  
+    $.ajax({
+        url: geoUrl,
+        method: 'GET'
+    })
+        // pull state name openweather api 
+        .then(function (geoResponse) {
+            var stateName = geoResponse[0].state;
+            stateName = stateName.toUpperCase();
+        
+
+        // placeholder tag for the current location (city, state) on the pollen index 
+        var currentLocation = $("#cLocation"); 
+        var lIcon = $("#lIcon");
+        //console.log(currentLocation); 
+        city = city.toUpperCase(); // making everything uppercase bc it looks better than lowercase lol 
+        $("#cLocation").html('<i class="fa-solid fa-location-dot mr-2"></i>' + city + ", " + stateName); 
+        })
 
     $.ajax({
         url: owApiUrl,
@@ -35,8 +48,6 @@ $("#cLocation").html('<i class="fa-solid fa-location-dot mr-2"></i>' + city);
         .then(function (response) {
             var lat = response.coord.lat;
             var lon = response.coord.lon;
-
-             // todays forecast section to display on the card 
         
          // todays forecast section to display on the card 
         var weather = response.weather[0].main; 
