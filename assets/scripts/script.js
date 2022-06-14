@@ -19,7 +19,7 @@ function searchCoord(city) {
 
 
     // openweather geocode api url for state locator from city search
-    var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + owApiKey; 
+    var geoUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + owApiKey; 
 
     // find and add state using geocode api  
     $.ajax({
