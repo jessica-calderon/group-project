@@ -4,7 +4,7 @@
  */
 // display todays current date on page
 var today = moment().format('MMMM Do, YYYY');
-$("#currentDate").html("<i class='mr-1 fa-solid fa-calendar-day'></i>" + today);
+$("#currentDate").html("<i class='mr-2 fa-solid fa-calendar-day'></i>" + today);
 
 // openweather api logic start 
 function searchCoord(city) {
@@ -92,7 +92,7 @@ function searchCoord(city) {
                                 // clear pollenLevels div
                                 $('#pollenLevels').empty();
                                 // div to hold and display all pollen levels with styling 
-                                var pollenDiv = $("<div class='card has-text-light has-background-grey-dark pl-5 py-4 is-size-5 has-text-weight-semi-bold is-flex-grow-5'>").html("<h5 class='has-text-light'>Pollen Index:</h5> " + "<i class='fa-style fa-color fa-margin fa-solid fa-seedling'></i>Grass: " + grassIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree: " + treeIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Ash: " + treeAshIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Cedar: " + treeCedarIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Oak: " + treeOakIndex + "<br><i class='fa-style fa-color fa-margin fa-solid fa-tree'></i>Tree Pine: " + treePineIndex + "<br><i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i>Weed: " + weedIndex + "<br><i class='fa-style fa-color fa-margin fa-brands fa-pagelines'></i>Weed Ragweed: " + weedRagweedIndex);
+                                var pollenDiv = $("<div class='card has-text-light has-background-grey-dark pl-5 py-4 is-size-5 has-text-weight-semi-bold is-flex-grow-5'>").html("<h5 class='has-text-light'>Pollen Index:</h5> " + "<i class='fa-style fa-color mr-2 fa-solid fa-seedling'></i>Grass: " + grassIndex + "<br><i class='fa-style fa-color mr-2 fa-solid fa-tree'></i>Tree: " + treeIndex + "<br><i class='fa-style fa-color mr-2 fa-solid fa-tree'></i>Tree Ash: " + treeAshIndex + "<br><i class='fa-style fa-color mr-2 fa-solid fa-tree'></i>Tree Cedar: " + treeCedarIndex + "<br><i class='fa-style fa-color mr-2 fa-solid fa-tree'></i>Tree Oak: " + treeOakIndex + "<br><i class='fa-style fa-color mr-2 fa-solid fa-tree'></i>Tree Pine: " + treePineIndex + "<br><i class='fa-style fa-color mr-2 fa-brands fa-pagelines'></i>Weed: " + weedIndex + "<br><i class='fa-style fa-color mr-2 fa-brands fa-pagelines'></i>Weed Ragweed: " + weedRagweedIndex);
                                 // push pollen div to page 
             /*                     $('.pollen-card').attr("class", "card is-dark") */
                                 $('#pollenLevels').html(pollenDiv)
@@ -111,7 +111,7 @@ function searchAirQuality(city) {
                 // pull air quality index from air quality open data api and push to page dynamically after city search
                 .then(function (response) {
                     $("#airQuality").empty();
-                    var air = $("<p>").text("AQI - ");
+                    var air = $("<p>").text("AQI: ");
                     var aqi = $("<span>")
                     aqi.text(response.data.aqi)
                     air.append(aqi)
@@ -128,7 +128,10 @@ function searchAirQuality(city) {
                             // unhealthy-red
                         } else if (response.data.aqi >= 151 && response.data.aqi <= 200) {
                             $("#airQuality").attr("class", "card m-5 p-5 has-background-danger has-text-centered title has-text-white");
-                    }
+                        } else {
+                            $("#airQuality").attr("class", "card m-5 p-5 has-background-light has-text-centered title has-text-black");
+                            aqi.text(" N/A ")
+                }
                         // append air quality to page
                         newDivEl.append(air);
                         $("#airQuality").html(newDivEl);
