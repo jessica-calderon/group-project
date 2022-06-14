@@ -177,5 +177,7 @@ $("#clearBtn").on("click", function (event) {
     $("#locationHistory").html("");
     localStorage.clear();
 })
+// stop refresh on enter key 
+
 loadSaved();
 
