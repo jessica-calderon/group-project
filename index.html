@@ -16,10 +16,10 @@
 
 <body>
     <!-- Navbar start  -->
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark p-2" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
           <a class="index-link" href="#">Pollen Tracker
-            <i class="fa-margin fa-solid fa-smog"></i>
+            <i class="ml-2 fa-solid fa-smog"></i>
           </a>
         </div>
         </div>
@@ -31,93 +31,85 @@
             <label class="label">
                 <i class="fa-solid fa-magnifying-glass-location"></i>
                 Location Search </label>
-                <div class="box has-background-light has-text-centered">
-                    
-                    <form type="form" action="#" data-netlify="" class="form p-1">
+                <div class="box has-background-light has-text-centered">                    
+                    <form type="form" action="#" data-netlify="" class="form p-1" onSubmit="return false;">
                         <div class="field">
                             <div class="control"><input type="text" name="city" placeholder="Enter a City" class="input" id="citySearch"/></div>
                         </div>
                     </form>
                 </div>
-                <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="fa-style fa-solid fa-magnifying-glass"></i>
+                <!-- search and button -->
+                <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i class="mr-2 fa-solid fa-magnifying-glass"></i>
                     Search</button>
                 <button id="clearBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
-                    <i class="fa-style fa-solid fa-trash-can"></i>
+                    <i class="mr-2 fa-solid fa-trash-can"></i>
                     Clear</button>
             </div>
-            <!-- Location history div -->
-            <div class="box">
-                <article class="media">
-                    <figure class="media-left"></figure>
-                </article><label class="label">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    Location History</label>
-                <div id="locationHistory" class="location-history is-centered">
-                    <!-- insert location search history here dynamically -->
+                <!-- Location history div -->
+                <div class="box">
+                    <article class="media">
+                        <figure class="media-left"></figure>
+                    </article><label class="label">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Location History</label>
+                    <div id="locationHistory" class="location-history is-centered">
+                        <!-- insert location search history here dynamically -->
+                    </div>
                 </div>
-            </div>
-            <div class="columns"></div>
+                <div class="columns"></div>
         </div>
         <!-- Pollen level div -->
         <div class="column is-8">
             <div class="box">
                 <article class="media">
                     <figure class="media-left"></figure>
-                    <div class="media-content">
-                        <div class="content">
-                                <h4 class="has-text-weight-bold"><i class="fa-style fa-solid fa-location-dot"></i> 
-                                    Location Placeholder
+                        <div class="media-content">
+                           <div class="content">
+                                <h4  id="cLocation" class="has-text-weight-bold"> 
+                                <!-- daily weather goes here dynamically  -->
                                 </h4>
-                                <div id="currentDate" class="current-date">
+                                <div id="currentDate" class="current-date subtitle">
                                     <!-- moment date inserted dynamically using jquery -->
                                 </div>
                                 </p>
-                            <h4>Today's Pollen Levels:</h4>
-                            <div id="pollenLevels"></div>
-                            <div><small></small></div>
-                            <div class="mt-2 mb-2"><small> </small></div>
-                        </div>
+                                <hr class="has-background-grey-light">
+                                </div></div></div>
+                                <div class="box">
+                                
+                             <h4 class="subtitle has-text-weight-bold">Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i></h4>
+                            <div id="pollenLevels" class="pollen-div"></div>
+                        <div class="mt-2 mb-2"><small> </small></div>
                     </div>
-                </article>
-            </div>
+                </div>
+            </article>
+        </div>
+            <!-- air quality index section -->
             <div class="columns">
                 <div class="column is-12">
                     <div class="box">
                         <article class="media">
-                            <figure class="media-left"></figure>
                             <div class="media-content">
                                 <div class="content">
-                                    <p class="has-text-weight-bold">
-                                        <i class="fa-style fa-solid fa-wind"></i>
-                                        Today's Air Quality
-                                    </p>
+                                    <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
+                                    </h4>
                                     <div class="air-quality" id="airQuality"></div>
-                                    <p class="is-size-6"></p>
-                                    <div><small></small></div>
-                                    <div class="mt-2 mb-2"><small> </small></div>
                                 </div>
                             </div>
-                        </article>
+                        </article> 
                     </div>
                 </div>
-            </div>
+            </div>            
             <!-- daily forecast div -->
             <div class="columns">
                 <div class="column is-12">
                     <div class="box">
                         <article class="media">
-                            <figure class="media-left"></figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p class="has-text-weight-bold">
-                                        <i class="fa-solid fa-cloud-sun"></i>
-                                        Today's Weather Conditions:
-                                    </p>
-                                    <p class="has-text-dark is-size-7 has-text-grey">
-                                        Daily Forecast</p>
-                                    <p class="is-size-6"></p>
-                                    <div><small></small></div>
-                                    <div class="mt-2 mb-2"><small> </small></div>
+                            <div class="media-content"><div class="content"><h4>                                        
+                                        Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
+                                    </h4>
+                                <div class="column is-one-quarter p-2">
+                                    
+                                    <p id="dForecast" class="has-text-dark has-text-grey"></p>
                                 </div>
                             </div>
                         </article>
@@ -130,20 +122,19 @@
 <footer class="footer has-background-white-ter">
     <div class="content has-text-centered">
       <p>
-        <strong><a href="#">Pollen Tracker</a></strong>
-         by 
-         <a href="https://github.com/jessica-calderon" target="_blank" alt="Jessica Calderon GitHub">Jessica Calderon</a>, 
-        <a href="https://github.com/jdcarra" target="_blank" alt="Jonas Carrasco GitHub">Jonas Carrasco</a>, 
-        <a href="https://github.com/Jokernal" target="_blank" alt="Jordan Kern GitHub">Jordan Kern</a>, 
-        and <a href="https://github.com/Soulreaper077" target="_blank"alt="Jesse Ponce GitHub">Jesse Ponce</a>. 
-        © 2022
+            <strong><a href="#">Pollen Tracker</a></strong>
+            by 
+            <a href="https://github.com/jessica-calderon" target="_blank" alt="Jessica Calderon GitHub">Jessica Calderon</a>, 
+            <a href="https://github.com/jdcarra" target="_blank" alt="Jonas Carrasco GitHub">Jonas Carrasco</a>, 
+            <a href="https://github.com/Jokernal" target="_blank" alt="Jordan Kern GitHub">Jordan Kern</a>, 
+            and <a href="https://github.com/Soulreaper077" target="_blank"alt="Jesse Ponce GitHub">Jesse Ponce</a>. 
+            © 2022
       </p>
     </div>
   </footer>
 <!-- script, moment, jquery links -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script><script src="./assets/scripts/script.js"></script>
 </body>
