@@ -95,17 +95,18 @@
     <div class="columns">
         <div class="column is-12">
             <div class="box">
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
-                            </h4>
-                            <div class="air-quality" id="airQuality"></div>
-                        </div>
+
+                <div class="columns is-centered">
+                    <div class="content column is-half">
+                        <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
+                        </h4>
+                        <div class="air-quality column is-half" id="airQuality"></div>
                     </div>
-                </article>
+                </div>
             </div>
+            </article>
         </div>
+    </div>
     </div>
     <!-- daily forecast div -->
     <div class="columns">
@@ -117,9 +118,11 @@
                             <h4>
                                 Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
                             </h4>
-                            <div class="column is-one-quarter p-2">
+                            <div class="columns is-centered">
+                                <div class="column is-half p-2">
 
-                                <p id="dForecast" class="has-text-dark has-text-grey"></p>
+                                    <p id="dForecast" class="has-text-dark has-text-grey"></p>
+                                </div>
                             </div>
                         </div>
                 </article>
@@ -143,7 +146,6 @@
             </p>
         </div>
     </footer>
-    <!-- functionality comment -->
     <!-- script, moment, jquery links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>

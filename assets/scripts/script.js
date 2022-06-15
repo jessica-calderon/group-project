@@ -118,7 +118,7 @@ function searchAirQuality(city) {
             var newDivEl = $("<div>")
             // set background color based on aqi levels green-good 
             if (response.data.aqi <= 50 && response.data.aqi >= 0) {
-                $("#airQuality").attr("class", "card is-one-quarter p-2 m-5 p-5 has-background-success has-text-centered title has-text-white");
+                $("#airQuality").attr("class", "card p-2 m-5 p-5 has-background-success has-text-centered title has-text-white");
                 // moderate-yellow 
             } else if (response.data.aqi >= 51 && response.data.aqi <= 100) {
                 $("#airQuality").attr("class", "card m-5 p-5 has-background-warning has-text-centered title has-text-black");
