@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links to stylesheet, bulma css, font awesome, google fonts -->
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Pollen Tracker</title>
+</head>
+
+<body>
+    <!-- Navbar start  -->
+    <nav class="navbar is-dark p-2" role="navigation" aria-label="main navigation">
+        <div class="navbar-start">
+            <a class="index-link" href="#">Pollen Tracker
+                <i class="ml-2 fa-solid fa-smog"></i>
+            </a>
+        </div>
+        </div>
+    </nav>
+    <!-- location search form -->
+    <div class="columns">
+        <div class="column is-4">
+            <div class="box">
+                <label class="label">
+                    <i class="fa-solid fa-magnifying-glass-location"></i>
+                    Location Search </label>
+                <div class="box has-background-light has-text-centered">
+                    <form type="form" action="#" data-netlify="" class="form p-1" onSubmit="return false;">
+                        <div class="field">
+                            <div class="control"><input type="text" name="city" placeholder="Enter a City" class="input"
+                                    id="citySearch" /></div>
+                        </div>
+                    </form>
+                </div>
+                <!-- search and button -->
+                <button id="searchBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth"><i
+                        class="mr-2 fa-solid fa-magnifying-glass"></i>
+                    Search</button>
+                <button id="clearBtn" class="btn-style button is-dark has-text-weight-bold py-2 is-fullwidth">
+                    <i class="mr-2 fa-solid fa-trash-can"></i>
+                    Clear</button>
+            </div>
+            <!-- Location history div -->
+            <div class="box">
+                <article class="media">
+                    <figure class="media-left"></figure>
+                </article><label class="label">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Location History</label>
+                <div id="locationHistory" class="location-history is-centered">
+                    <!-- insert location search history here dynamically -->
+                </div>
+            </div>
+            <div class="columns"></div>
+        </div>
+        <!-- Pollen level div -->
+        <div class="column is-8">
+            <div class="box">
+                <article class="media">
+                    <figure class="media-left"></figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <h4 id="cLocation" class="has-text-weight-bold">
+                                <!-- daily weather goes here dynamically  -->
+                            </h4>
+                            <div id="currentDate" class="current-date subtitle">
+                                <!-- moment date inserted dynamically using jquery -->
+                            </div>
+                            </p>
+                            <hr class="has-background-grey-light">
+                        </div>
+                    </div>
+            </div>
+            <div class="box">
+
+                <h4 class="subtitle has-text-weight-bold">Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i>
+                </h4>
+                <div id="pollenLevels" class="pollen-div"></div>
+                <div class="mt-2 mb-2"><small> </small></div>
+            </div>
+        </div>
+        </article>
+    </div>
+    <!-- air quality index section -->
+    <div class="columns">
+        <div class="column is-12">
+            <div class="box">
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
+                            </h4>
+                            <div class="air-quality" id="airQuality"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <!-- daily forecast div -->
+    <div class="columns">
+        <div class="column is-12">
+            <div class="box">
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <h4>
+                                Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
+                            </h4>
+                            <div class="column is-one-quarter p-2">
+
+                                <p id="dForecast" class="has-text-dark has-text-grey"></p>
+                            </div>
+                        </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer has-background-white-ter">
+        <div class="content has-text-centered">
+            <p>
+                <strong><a href="#">Pollen Tracker</a></strong>
+                by
+                <a href="https://github.com/jessica-calderon" target="_blank" alt="Jessica Calderon GitHub">Jessica
+                    Calderon</a>,
+                <a href="https://github.com/jdcarra" target="_blank" alt="Jonas Carrasco GitHub">Jonas Carrasco</a>,
+                <a href="https://github.com/Jokernal" target="_blank" alt="Jordan Kern GitHub">Jordan Kern</a>,
+                and <a href="https://github.com/Soulreaper077" target="_blank" alt="Jesse Ponce GitHub">Jesse Ponce</a>.
+                © 2022
+            </p>
+        </div>
+    </footer>
+    <!-- functionality comment -->
+    <!-- script, moment, jquery links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
+</html>

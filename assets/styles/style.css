@@ -1,0 +1,107 @@
+* {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+/* body background color and view height and width */
+body {
+    background-color: lightslategray;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+/* navbar link style */
+.index-link {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 10px 0 0 10px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.index-link:hover {
+    color: lightgrey;
+    background-color: black;
+}
+
+/* current date style */
+.current-date {
+    text-transform: uppercase;
+}
+
+/* btn spacing */
+.btn-style {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* location history btn style */
+.styled-btn {
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.location-history .styled-btn {
+    text-transform: uppercase;
+}
+
+/* add spacing to main div cards */
+.box {
+    margin: 10px;
+}
+
+/* add color to font awesome icons */
+.fa-color {
+    color: #0b6b10;
+}
+
+/* pollen index style */
+.pollen-index {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.div-style {
+    border: 1px single black;
+}
+
+/* styling for the current weather box */
+.dForecast p {
+    font-size: 40px;
+}
+
+/* footer style */
+.footer {
+    margin: auto;
+}
+
+.footer a {
+    color: black;
+}
+
+.footer a:hover {
+    color: grey;
+}
+
+/* different display size media queries */
+/* smaller desktop screens */
+@media screen and (max-width: 980px) {
+    .index-link {
+        margin: 10px 0 0 10px;
+    }
+}
+
+/* tablets and smaller */
+@media screen and (max-width: 768px) {
+    .index-link {
+        margin: 0 0 0 10px;
+    }
+}
+
+/* phones and smaller */
+@media screen and (max-width: 575px) {}
