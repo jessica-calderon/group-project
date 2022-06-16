@@ -6,11 +6,36 @@
 var today = moment().format('MMMM Do, YYYY');
 $("#currentDate").html("<i class='mr-2 fa-solid fa-calendar-day'></i>" + today);
 
+
 // openweather api logic start 
 function searchCoord(city) {
-    var searched = JSON.parse(localStorage.getItem('city'));
+        var searched = JSON.parse(localStorage.getItem('city'));
+        
+    //if for searched repopulating to latest index number
+      if(searched === searched)
+      {
+
+       for (let index = 0; index < searched.length; index++) {
+            
+            var i = index;
+       }
+        
+       
+        
+       searched = searched[i];
+       
+
+      }
+       
+      
+        
+      
+        
+    
+    console.log(searched);
     var owApiKey = "8146fc372939ba1529f0cee4a074681a";
     var owApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searched + "&units=imperial&appid=" + owApiKey;
+    console.log(owApiUrl);
     // openweather geocode api url for state locator from city search
     var geoUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + owApiKey;
     // find and add state using geocode api  
@@ -118,7 +143,7 @@ function searchAirQuality(city) {
             var newDivEl = $("<div>")
             // set background color based on aqi levels green-good 
             if (response.data.aqi <= 50 && response.data.aqi >= 0) {
-                $("#airQuality").attr("class", "card is-one-quarter p-2 m-5 p-5 has-background-success has-text-centered title has-text-white");
+                $("#airQuality").attr("class", "card p-2 m-5 p-5 has-background-success has-text-centered title has-text-white");
                 // moderate-yellow 
             } else if (response.data.aqi >= 51 && response.data.aqi <= 100) {
                 $("#airQuality").attr("class", "card m-5 p-5 has-background-warning has-text-centered title has-text-black");
@@ -137,6 +162,7 @@ function searchAirQuality(city) {
             $("#airQuality").html(newDivEl);
         });
 }
+
 /* city location logic */
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
@@ -148,11 +174,11 @@ $("#searchBtn").on("click", function (event) {
         saved.push(...savedSearches);
     }
     var citySearch = $("#citySearch").val().trim();
-    //citySearch = citySearch.toLowerCase();
+    
     if (saved.includes(citySearch)) {
         return;
     }
-    //var savedSearch = $(this).siblings("input").val();
+    
     saved.push(citySearch)
     localStorage.setItem('city', JSON.stringify(saved));
 
@@ -183,8 +209,13 @@ function loadSaved() {
 }
 // clickable location history
 $("#locationHistory").on('click', '.btn', function (event) {
+    var saved = JSON.parse(localStorage.getItem('city'));
+    var citySearch = $(this).text();
+    console.log(citySearch);
     event.preventDefault();
     searchAirQuality($(this).text());
+    saved.push(citySearch);
+    localStorage.setItem('city', JSON.stringify(saved));
     searchCoord($(this).text());
 });
 // clear location history on clear btn click

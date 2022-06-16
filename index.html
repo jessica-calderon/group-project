@@ -85,6 +85,7 @@
 
                 <h4 class="subtitle has-text-weight-bold">Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i>
                 </h4>
+                <hr class="has-background-grey-light">
                 <div id="pollenLevels" class="pollen-div"></div>
                 <div class="mt-2 mb-2"><small> </small></div>
             </div>
@@ -95,17 +96,24 @@
     <div class="columns">
         <div class="column is-12">
             <div class="box">
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
-                            </h4>
-                            <div class="air-quality" id="airQuality"></div>
+
+                <div class="columns">
+                    <div class="content column">
+                        <h4 class="has-text-centered">Today's Air Quality Index (AQI)<i
+                                class="ml-2 fa-solid fa-wind"></i>
+                        </h4>
+                        <hr class="has-background-grey-light">
+                        <div class="columns is-centered">
+                            <div class="column is-half p-2">
+                                <p class="air-quality" id="airQuality">
+                            </div>
                         </div>
                     </div>
-                </article>
+                </div>
             </div>
+            </article>
         </div>
+    </div>
     </div>
     <!-- daily forecast div -->
     <div class="columns">
@@ -114,12 +122,15 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
-                            <h4>
+                            <h4 class="has-text-centered">
                                 Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
+                                <hr class="has-background-grey-light">
                             </h4>
-                            <div class="column is-one-quarter p-2">
+                            <div class="columns is-centered">
+                                <div class="column is-half p-2">
 
-                                <p id="dForecast" class="has-text-dark has-text-grey"></p>
+                                    <p id="dForecast" class="has-text-dark has-text-grey"></p>
+                                </div>
                             </div>
                         </div>
                 </article>
@@ -143,7 +154,6 @@
             </p>
         </div>
     </footer>
-    <!-- functionality comment -->
     <!-- script, moment, jquery links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
