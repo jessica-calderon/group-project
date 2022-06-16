@@ -85,6 +85,7 @@
 
                 <h4 class="subtitle has-text-weight-bold">Today's Pollen Levels<i class="fa-solid fa-leaf ml-2"></i>
                 </h4>
+                <hr class="has-background-grey-light">
                 <div id="pollenLevels" class="pollen-div"></div>
                 <div class="mt-2 mb-2"><small> </small></div>
             </div>
@@ -96,17 +97,20 @@
         <div class="column is-12">
             <div class="box">
 
-                <div class="columns is-centered">
-                    <div class="content column is-half">
-                        <h4 class=>Today's Air Quality Index (AQI)<i class="ml-2 fa-solid fa-wind"></i>
+                <div class="columns">
+                    <div class="content column">
+                        <h4 class="has-text-centered">Today's Air Quality Index (AQI)<i
+                                class="ml-2 fa-solid fa-wind"></i>
                         </h4>
-                        <div class="air-quality column is-half" id="airQuality"></div>
+                        <hr class="has-background-grey-light">
+                        <div class="columns is-centered">
+                            <div class="air-quality" id="airQuality"></div>
+                        </div>
                     </div>
                 </div>
+                </article>
             </div>
-            </article>
         </div>
-    </div>
     </div>
     <!-- daily forecast div -->
     <div class="columns">
@@ -115,8 +119,9 @@
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
-                            <h4>
+                            <h4 class="has-text-centered">
                                 Today's Weather Conditions<i class="ml-2 fa-solid fa-cloud-sun-rain"></i>
+                                <hr class="has-background-grey-light">
                             </h4>
                             <div class="columns is-centered">
                                 <div class="column is-half p-2">
